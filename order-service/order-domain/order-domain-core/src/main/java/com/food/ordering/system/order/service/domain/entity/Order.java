@@ -22,6 +22,8 @@ public class Order extends AggregateRoot<OrderId> {
     private OrderStatus orderStatus;
     private List<String> failureMessages;
 
+    public static final String FAILURE_MESSAGES_DELIMETER = ",";
+
     public void initializeOrder() {
         setId(new OrderId(UUID.randomUUID()));
         trackingId = new TrackingId(UUID.randomUUID());
@@ -106,9 +108,8 @@ public class Order extends AggregateRoot<OrderId> {
     }
 
     private void initializeOrderItems() {
-        long itemId = 1;
         for (OrderItem orderItem : items) {
-            orderItem.initializeOrderItem(super.getId(), new OrderItemId(itemId++));
+            orderItem.initializeOrderItem(super.getId(), new OrderItemId(UUID.randomUUID()));
         }
     }
 
