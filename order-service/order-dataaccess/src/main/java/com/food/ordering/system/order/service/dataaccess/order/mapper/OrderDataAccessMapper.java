@@ -74,7 +74,7 @@ public class OrderDataAccessMapper  {
     private List<OrderItemEntity> orderItemsToOrderItemEntities(List<OrderItem> items) {
         return items.stream()
                 .map(orderItem -> OrderItemEntity.builder()
-                        .id(orderItem.getOrderId().getValue())
+                        .id(orderItem.getId().getValue())
                         .productId(orderItem.getProduct().getId().getValue())
                         .price(orderItem.getPrice().getAmount())
                         .quantity(orderItem.getQuantity())

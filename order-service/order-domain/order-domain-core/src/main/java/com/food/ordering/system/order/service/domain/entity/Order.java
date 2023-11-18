@@ -108,8 +108,9 @@ public class Order extends AggregateRoot<OrderId> {
     }
 
     private void initializeOrderItems() {
+        long itemId = 1;
         for (OrderItem orderItem : items) {
-            orderItem.initializeOrderItem(super.getId(), new OrderItemId(UUID.randomUUID()));
+            orderItem.initializeOrderItem(super.getId(), new OrderItemId(itemId++));
         }
     }
 

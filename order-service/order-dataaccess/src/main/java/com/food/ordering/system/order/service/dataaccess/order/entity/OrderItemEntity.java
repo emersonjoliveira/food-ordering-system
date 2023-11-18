@@ -18,7 +18,7 @@ import java.util.UUID;
 public class OrderItemEntity {
 
     @Id
-    private UUID id;
+    private Long id;
 
     @Id
     @ManyToOne(cascade = CascadeType.ALL)
